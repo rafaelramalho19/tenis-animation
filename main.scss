@@ -1,0 +1,85 @@
+body {
+    background-color: #404041;
+    overflow: hidden;
+}
+
+.center {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    perspective: 5000;
+    cursor: pointer;
+}
+
+.ball {
+    transform: translate3d(-122px, 0, 0);
+    backface-visibility: hidden;
+}
+
+.field {
+    position: relative;
+    border-radius: 70px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        transition: opacity .3s ease-in-out;
+        opacity: 0;
+    }
+}
+
+
+.off {
+    .ball {
+        animation: turnOff .3s both ease-in-out;
+        transform: translate3d(-280px, 0, 0);
+    }
+    .field__background {
+        opacity: .4;
+    }
+}
+
+.on {
+    .ball {
+        animation: turnOn .3s both ease-in-out;
+        transform: translate3d(-122px, 0, 0);
+    }
+    .field__background {
+        opacity: 0;
+    }
+}
+
+@keyframes turnOff {
+    0% {
+        transform: translate3d(-122px, 0, 0);
+    }
+    50% {
+        transform: translate3d(-200px, 0, 0) scale(.5);
+    }
+    100% {
+        transform: translate3d(-280px, 0, 0);
+    }
+}
+
+@keyframes turnOn {
+    0% {
+        transform: translate3d(-280px, 0, 0);
+    }
+    50% {
+        transform: translate3d(-200px, 0, 0) scale(.5);
+    }
+    100% {
+        transform: translate3d(-122px, 0, 0);
+    }
+}
