@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "parcel": "^1.12.3"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "node-sass": "^4.9.2"
